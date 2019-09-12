@@ -13,16 +13,39 @@ namespace Deliverable_1___Currency_Format_Converter
         {
             Console.OutputEncoding = Encoding.UTF8;
             List<double> dollarAmounts = new List<double>();
+            string userInput;
+            double userOutput;
             const double jpExchangeRate = 107.54, seExchangeRate = 9.68, thExchangeRate = 30.61;
 
-            Console.WriteLine("Hello! Please enter the first dollar amount in the following format: 0.00");
-            dollarAmounts.Add(Convert.ToDouble(Console.ReadLine()));
+            Console.WriteLine("Hello! Please enter the first dollar amount");
+            userInput = Console.ReadLine();
+            while (!double.TryParse(userInput, out userOutput))
+            {
+                Console.WriteLine("I'm sorry, but I did not understand that input, please try again.");
+                userInput = Console.ReadLine();
+            }
+
+            dollarAmounts.Add(userOutput);
 
             Console.WriteLine("Now enter the second dollar amount");
-            dollarAmounts.Add(Convert.ToDouble(Console.ReadLine()));
+            userInput = Console.ReadLine();
+            while (!double.TryParse(userInput, out userOutput))
+            {
+                Console.WriteLine("I'm sorry, but I did not understand that input, please try again.");
+                userInput = Console.ReadLine();
+            }
+
+            dollarAmounts.Add(userOutput);
 
             Console.WriteLine("Now enter the final dollar amount");
-            dollarAmounts.Add(Convert.ToDouble(Console.ReadLine()));
+            userInput = Console.ReadLine();
+            while (!double.TryParse(userInput, out userOutput))
+            {
+                Console.WriteLine("I'm sorry, but I did not understand that input, please try again.");
+                userInput = Console.ReadLine();
+            }
+
+            dollarAmounts.Add(userOutput);
 
             Console.WriteLine("Total: {0}", dollarAmounts.Sum());
             Console.WriteLine("Average Amount: {0}", dollarAmounts.Average());
